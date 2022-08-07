@@ -13,10 +13,10 @@ import com.cagdasmarangoz.news.model.Article
     entities = [Article::class],
     version = 3
 )
-@TypeConverters(Converters::class)
 
+@TypeConverters(Converters::class)
 abstract class ArticleDatabase : RoomDatabase() {
-    abstract class getArticleDao() : ArticleDAO
+    abstract fun getArticleDao() : ArticleDAO
 
     companion object{
         @Volatile
