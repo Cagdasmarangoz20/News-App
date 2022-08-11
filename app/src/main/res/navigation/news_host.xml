@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_host"
+    app:startDestination="@id/breakingNews">
+<fragment
+    android:id="@+id/breakingNews"
+    android:label="fragment_breaking_news"
+    android:name="com.cagdasmarangoz.news.fragment.BreakingNewsFragment"
+    tools:layout="@layout/fragment_breaking_news">
+    <action
+        android:id="@+id/action_breakingNewsFragment_to_articleFragment"
+        app:destination="@id/articleFragment"
+        app:enterAnim="@anim/slide_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_out_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+</fragment>
+
+    <fragment
+        android:id="@+id/searchNews"
+        android:label="fragment_search"
+        android:name="com.cagdasmarangoz.news.fragment.SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/savedNews"
+        android:label="fragment_saved"
+        android:name="com.cagdasmarangoz.news.fragment.SavedFragment"
+        tools:layout="@layout/fragment_saved">
+        <action
+            android:id="@+id/action_savedFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:label="fragment_article"
+        android:name="com.cagdasmarangoz.news.fragment.ArticleFragment"
+        tools:layout="@layout/fragment_article">
+      <argument
+          android:name="article"
+          app:argType="com.cagdasmarangoz.news.model.Article"/>
+
+    </fragment>
+</navigation>
