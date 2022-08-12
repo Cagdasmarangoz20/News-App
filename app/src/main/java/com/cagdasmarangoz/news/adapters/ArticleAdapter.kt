@@ -95,22 +95,24 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
 
     override fun getItemId(position: Int)=position.toLong()
 
-    private var onItemClickListener: ((Article)-> Util)? = null
-    private var onArticleSaveClick: ((Article)-> Util)? = null
-    private var onArticleDeleteClick: ((Article)-> Util)? = null
-    private var onShareNewsClick: ((Article)-> Util)? = null
+    private var onItemClickListener: ((Article)-> Unit)? = null
+    private var onArticleSaveClick: ((Article)-> Unit)? = null
+    private var onArticleDeleteClick: ((Article)-> Unit)? = null
+    private var onShareNewsClick: ((Article)-> Unit)? = null
 
-    fun onItemClickListener(listener : ((Article)->Util)){
+    fun setOnItemClickListener(listener: (Article) -> Unit){
         onItemClickListener=listener
     }
-    fun onArticleSaveClick(listener : ((Article)->Util)){
+    fun onSaveClickListener(listener : ((Article)->Unit)){
         onArticleSaveClick=listener
     }
-    fun onArticleDeleteClick(listener : ((Article)->Util)){
+    fun onDeleteClickListener(listener: (Article) -> Unit){
         onArticleDeleteClick=listener
     }
-    fun onShareNewsClick(listener : ((Article)->Util)){
+    fun onShareClickListener(listener : ((Article)->Unit)){
         onShareNewsClick=listener
     }
+
+
 
 }

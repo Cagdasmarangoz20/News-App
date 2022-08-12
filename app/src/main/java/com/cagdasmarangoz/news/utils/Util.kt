@@ -9,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.util.Util
 import com.cagdasmarangoz.news.R
 import com.cagdasmarangoz.news.model.Article
 
