@@ -9,6 +9,7 @@ import com.cagdasmarangoz.news.model.Article
 import com.cagdasmarangoz.news.model.NewsResponse
 import com.cagdasmarangoz.news.repository.NewsRepository
 import com.cagdasmarangoz.news.utils.Resource
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -50,10 +51,16 @@ class NewsViewModel (val newsRepository: NewsRepository): ViewModel() {
         }
         return Resource.Error(response.message())
     }
-    fun getSearchdNews(queryString: String)=viewModelScope.launch {
-        searchNews.postValue(Resource.Loading())
-        val searchNewsResponse = newsRepository.getSearchNews(queryString,searchPageNumber)
-        searchNews.postValue(handleSearchNewsResponse(searchNewsResponse))
+
+    private var searchJob: Job? = null
+
+    fun getSearchdNews(queryString: String){
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            searchNews.postValue(Resource.Loading())
+            val searchNewsResponse = newsRepository.getSearchNews(queryString,searchPageNumber)
+            searchNews.postValue(handleSearchNewsResponse(searchNewsResponse))
+        }
     }
 
     private fun handleSearchNewsResponse(respons: Response<NewsResponse>): Resource<NewsResponse>? {

@@ -1,89 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     tools:context=".fragment.SearchFragment">
 
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="0dp"
-    android:layout_height="56dp"
-    android:id="@+id/cvSearch"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:background="@color/white"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/textInputLayout"
-            android:hint="Serach"
-            android:textColorHint="@color/bgLineColor"
-            app:boxBackgroundColor="@color/white"
-            app:endIconMode="custom"
-            app:endIconContentDescription="search"
-            app:endIconDrawable="@drawable/ic_search"
-            app:hintTextColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/etSearch"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.google.android.material.card.MaterialCardView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/rvSearch"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvSearch"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <com.facebook.shimmer.ShimmerFrameLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSearch"
         android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="Serach"
+                android:textColorHint="@color/bgLineColor"
+                app:boxBackgroundColor="@color/white"
+                app:endIconContentDescription="search"
+                app:endIconDrawable="@drawable/ic_search"
+                app:endIconMode="custom"
+                app:hintTextColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:id="@+id/shimmerFrameLayout3"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvSearch"
+        app:layout_constraintTop_toBottomOf="@id/cvSearch" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFrameLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:visibility="gone"
         app:duration="1000"
-        android:visibility="gone">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvSearch">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:background="@color/background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            android:orientation="vertical">
 
-            <include layout="@layout/item_article"
-                android:background="@color/background"/>
+            <include
+                layout="@layout/item_article"
+                android:background="@color/background" />
 
-            <include layout="@layout/item_article"
-                android:background="@color/background"/>
+            <include
+                layout="@layout/item_article"
+                android:background="@color/background" />
 
-            <include layout="@layout/item_article"
-                android:background="@color/background"/>
+            <include
+                layout="@layout/item_article"
+                android:background="@color/background" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
