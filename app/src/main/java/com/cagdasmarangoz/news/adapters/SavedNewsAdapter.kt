@@ -6,32 +6,29 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cagdasmarangoz.news.R
 import com.cagdasmarangoz.news.databinding.ItemArticleBinding
+import com.cagdasmarangoz.news.databinding.ItemSavedBinding
 import com.cagdasmarangoz.news.model.Article
 
-class SavedNewsAdapter : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHolder>() {
-
-    private val diffUtilCallback = object : DiffUtil.ItemCallback<Article>() {
-        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.url == newItem.url
-        }
-
-        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.id == newItem.id
-        }
+class SavedNewsAdapter : ListAdapter<Article,SavedNewsAdapter.SavedNewsViewHolder>(object : DiffUtil.ItemCallback<Article>() {
+    override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+        return oldItem.url == newItem.url
     }
 
+    override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+        return oldItem.id == newItem.id
+    }
+}) {
 
-    inner class SavedNewsViewHolder(var view: ItemArticleBinding) :
-        RecyclerView.ViewHolder(view.root)
 
-    val differ = AsyncListDiffer(this, diffUtilCallback)
+    inner class SavedNewsViewHolder(var view: ItemSavedBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SavedNewsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = DataBindingUtil.inflate<ItemArticleBinding>(
+        val view = DataBindingUtil.inflate<ItemSavedBinding>(
             inflater,
             R.layout.item_saved,
             parent,
@@ -42,7 +39,7 @@ class SavedNewsAdapter : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHold
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: SavedNewsViewHolder, position: Int) {
-        val article = differ.currentList[position]
+        val article = getItem(position)
         holder.view.article = article
 
         holder.itemView.setOnClickListener {
@@ -68,12 +65,6 @@ class SavedNewsAdapter : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHold
         }
     }
 
-
-
-
-
-
-
     private var onItemClickListener: ((Article) -> Unit)? = null
     private var onShareNewsClick: ((Article) -> Unit)? = null
 
@@ -82,12 +73,9 @@ class SavedNewsAdapter : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHold
     }
 
 
-
     fun onShareClickListener(listener: ((Article) -> Unit)) {
         onShareNewsClick = listener
     }
-
-    override fun getItemCount() = differ.currentList.size
 
 
 

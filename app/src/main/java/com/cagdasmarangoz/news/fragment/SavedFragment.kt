@@ -59,7 +59,7 @@ class SavedFragment : Fragment(R.layout.fragment_saved) {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                val article = newsAdapter.differ.currentList[position]
+                val article = newsAdapter.currentList[position]
                 viewModel.deleteArticle(article)
 
                 Snackbar.make(requireView(),"Delete Successfully",Snackbar.LENGTH_SHORT).apply {
@@ -91,8 +91,9 @@ class SavedFragment : Fragment(R.layout.fragment_saved) {
     private fun setViewModelObserver() {
         viewModel.getSavedArticles().observe(viewLifecycleOwner, Observer {
             Log.i(TAG, "" + it.size)
-            newsAdapter.differ.submitList(it)
+            newsAdapter.submitList(it)
             rvSavedNews.visibility = View.VISIBLE
+            shimmerFrameLayout2.visibility = View.GONE
             shimmerFrameLayout2.stopShimmerAnimation()
         })
     }
