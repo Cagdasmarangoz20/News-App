@@ -1,12 +1,14 @@
 package com.cagdasmarangoz.news.fragment
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +31,15 @@ class SavedFragment : Fragment(R.layout.fragment_saved) {
         newsAdapter = SavedNewsAdapter()
         rvSavedNews.apply {
             adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity)
+            val displayMetrics = DisplayMetrics()
+            requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
+            val height = displayMetrics.heightPixels
+            val width = displayMetrics.widthPixels
+            layoutManager = if (height>width){
+                LinearLayoutManager(activity)
+            }else{
+                GridLayoutManager(activity,2)
+            }
 
         }
         newsAdapter.setOnItemClickListener {

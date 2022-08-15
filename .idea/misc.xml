@@ -6,7 +6,8 @@
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1095" />
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1095" />
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/drawable/selector.xml" value="0.2385" />
-        <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout-land/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout/fragment_article.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout/fragment_breaking_news.xml" value="0.2" />
         <entry key="..\:/Users/maran/AndroidStudioProjects/News/app/src/main/res/layout/fragment_saved.xml" value="0.33" />
