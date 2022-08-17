@@ -4,32 +4,28 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.util.Util
 import com.cagdasmarangoz.news.R
 import com.cagdasmarangoz.news.databinding.ItemArticleBinding
 import com.cagdasmarangoz.news.model.Article
 
-class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
-    companion object{
-        private val diffUtilCallback = object  : DiffUtil.ItemCallback<Article>(){
-            override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-                return  oldItem.title == oldItem.title
-            }
-
-            override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-                return newItem.title == newItem.title
-            }
+class ArticleAdapter : ListAdapter<Article,ArticleAdapter.ArticleViewHolder>(
+    object  : DiffUtil.ItemCallback<Article>(){
+        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+            return  oldItem.id == oldItem.id
         }
 
+        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+            return newItem == newItem
+        }
     }
+){
 
     class ArticleViewHolder(var view : ItemArticleBinding) : RecyclerView.ViewHolder(view.root)
 
-    val differ = AsyncListDiffer(this, diffUtilCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -39,28 +35,23 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-       val article = differ.currentList[position]
+       val article = getItem(position)
+
         holder.view.article = article
 
         holder.itemView.setOnClickListener{
             onItemClickListener?.let {
-                article.let { article->
-                    it(article)
-                }
+                it(article)
             }
         }
         holder.itemView.setOnClickListener {
             onItemClickListener?.let {
-                article.let { article ->
-                    it(article)
-                }
+                it(article)
             }
         }
         holder. view.ivShare.setOnClickListener{
             onShareNewsClick?.let {
-                article.let { it1->
-                    it(it1)
-                }
+                it(article)
             }
         }
         holder.view.ivSave.setOnClickListener{
@@ -88,10 +79,6 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>(){
 
 
     }
-
-    override fun getItemCount()  = differ.currentList.size
-
-    var isSave = false
 
     override fun getItemId(position: Int)=position.toLong()
 

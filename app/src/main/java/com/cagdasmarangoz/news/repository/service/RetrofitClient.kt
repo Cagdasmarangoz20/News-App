@@ -1,6 +1,7 @@
 package com.cagdasmarangoz.news.repository.service
 
 import com.cagdasmarangoz.news.utils.Constants
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

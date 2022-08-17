@@ -15,11 +15,11 @@ import com.cagdasmarangoz.news.model.Article
 
 class SavedNewsAdapter : ListAdapter<Article,SavedNewsAdapter.SavedNewsViewHolder>(object : DiffUtil.ItemCallback<Article>() {
     override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-        return oldItem.url == newItem.url
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem == newItem
     }
 }) {
 

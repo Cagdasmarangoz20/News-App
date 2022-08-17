@@ -2,6 +2,7 @@ package com.cagdasmarangoz.news.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.cagdasmarangoz.news.utils.DateUtil
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -27,5 +28,9 @@ data class Article(
     var url : String?,
     @SerializedName("urlToImage")
     var urlToImage : String?
-) : Serializable
-
+) : Serializable{
+    fun toFormattedDate(): String {
+        val date = DateUtil.getDateFromStandardFormat(publishedAt?:"") ?: return ""
+        return DateUtil.dateToFormattedString(date,"yyyy-MM-dd hh:mm")
+    }
+}

@@ -78,7 +78,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     shimmerFrameLayout3.stopShimmerAnimation()
                     shimmerFrameLayout3.visibility = View.GONE
                     newsResponse.data?.let { news ->
-                        newsAdapter.differ.submitList(news.articles)
+                        newsAdapter.submitList(news.articles)
                     }
                 }
                 is Resource.Error -> {

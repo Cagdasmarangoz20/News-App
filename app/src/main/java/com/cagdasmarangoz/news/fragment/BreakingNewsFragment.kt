@@ -96,7 +96,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                     shimmerFrameLayout.visibility = View.GONE
                     newsResponse.data?.let { news ->
                         rvBreakingNews.visibility = View.VISIBLE
-                        newsAdapter.differ.submitList(news.articles)
+                        newsAdapter.submitList(news.articles)
                     }
                 }
                 is Resource.Error -> {

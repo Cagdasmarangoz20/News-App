@@ -2,9 +2,7 @@ package com.cagdasmarangoz.news.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.lifecycle.ViewModelProvider
@@ -12,8 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.cagdasmarangoz.news.R
 import com.cagdasmarangoz.news.repository.NewsRepository
 import com.cagdasmarangoz.news.repository.db.ArticleDatabase
-import com.cagdasmarangoz.news.viewModel.NewsViewModel
-import com.cagdasmarangoz.news.viewModel.NewsViewModelFactory
+import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModel
+import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_article.*
 
 class ArticleFragment : Fragment(R.layout.fragment_article){
