@@ -17,14 +17,14 @@ import com.cagdasmarangoz.news.adapters.SavedNewsAdapter
 import com.cagdasmarangoz.news.repository.NewsRepository
 import com.cagdasmarangoz.news.repository.db.ArticleDatabase
 import com.cagdasmarangoz.news.utils.shareNews
-import com.cagdasmarangoz.news.viewModel.NewsViewModel
-import com.cagdasmarangoz.news.viewModel.NewsViewModelFactory
+import com.cagdasmarangoz.news.viewModel.savedModel.SaveViewModelFactory
+import com.cagdasmarangoz.news.viewModel.savedModel.SavedViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_saved.*
 
 class SavedFragment : Fragment(R.layout.fragment_saved) {
 
-    lateinit var viewModel: NewsViewModel
+    lateinit var viewModel: SavedViewModel
     lateinit var newsAdapter: SavedNewsAdapter
     val TAG = "breakingNewsFragment"
     private fun setupRecyclerView() {
@@ -90,8 +90,8 @@ class SavedFragment : Fragment(R.layout.fragment_saved) {
         super.onViewCreated(view, savedInstanceState)
         context?.let {
             val newsRepository = NewsRepository(ArticleDatabase(it))
-            val viewModelProvider = NewsViewModelFactory(newsRepository)
-            viewModel = ViewModelProvider(this, viewModelProvider)[NewsViewModel::class.java]
+            val viewModelProvider = SaveViewModelFactory(newsRepository)
+            viewModel = ViewModelProvider(this, viewModelProvider)[SavedViewModel::class.java]
 
         }
         setupRecyclerView()

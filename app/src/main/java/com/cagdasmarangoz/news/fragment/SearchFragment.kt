@@ -17,15 +17,15 @@ import com.cagdasmarangoz.news.repository.db.ArticleDatabase
 import com.cagdasmarangoz.news.utils.Resource
 import com.cagdasmarangoz.news.utils.shareNews
 import com.cagdasmarangoz.news.utils.textChangeDelayedListener
-import com.cagdasmarangoz.news.viewModel.NewsViewModel
-import com.cagdasmarangoz.news.viewModel.NewsViewModelFactory
+import com.cagdasmarangoz.news.viewModel.searchModel.SearchViewModel
+import com.cagdasmarangoz.news.viewModel.searchModel.SearchViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
 
-    lateinit var viewModel: NewsViewModel
+    lateinit var viewModel: SearchViewModel
     lateinit var newsAdapter: ArticleAdapter
     val TAG = "breakingNewsFragment"
 
@@ -41,8 +41,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         context?.let {
             val newsRepository = NewsRepository(ArticleDatabase(it))
-            val viewModelProvider = NewsViewModelFactory(newsRepository)
-            viewModel = ViewModelProvider(this, viewModelProvider)[NewsViewModel::class.java]
+            val viewModelProvider = SearchViewModelFactory(newsRepository)
+            viewModel = ViewModelProvider(this, viewModelProvider)[SearchViewModel::class.java]
         }
         setupRecyclerView()
         newsAdapter.setOnItemClickListener {
@@ -104,10 +104,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
             val height = displayMetrics.heightPixels
             val width = displayMetrics.widthPixels
-            layoutManager = if (height>width){
+            layoutManager = if (height > width) {
                 LinearLayoutManager(activity)
-            }else{
-                GridLayoutManager(activity,2)
+            } else {
+                GridLayoutManager(activity, 2)
             }
         }
     }

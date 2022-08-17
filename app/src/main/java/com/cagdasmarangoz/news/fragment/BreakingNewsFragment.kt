@@ -16,8 +16,8 @@ import com.cagdasmarangoz.news.repository.NewsRepository
 import com.cagdasmarangoz.news.repository.db.ArticleDatabase
 import com.cagdasmarangoz.news.utils.Resource
 import com.cagdasmarangoz.news.utils.shareNews
-import com.cagdasmarangoz.news.viewModel.NewsViewModel
-import com.cagdasmarangoz.news.viewModel.NewsViewModelFactory
+import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModel
+import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 import kotlin.random.Random
@@ -80,6 +80,8 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             val newsRepository = NewsRepository(ArticleDatabase(it))
             val viewModelProvider = NewsViewModelFactory(newsRepository)
             viewModel = ViewModelProvider(this,viewModelProvider)[NewsViewModel::class.java]
+
+
 
         }
       setupRecyclerView()
