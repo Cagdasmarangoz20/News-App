@@ -23,14 +23,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
                 android:id="@+id/ivArticle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                loadImage="@{article.urlToImage}"
+                android:layout_width="140dp"
+
+                android:layout_height="132dp"
                 android:scaleType="fitXY"
-                loadImage="@{article.urlToImage}"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
                 android:layout_width="match_parent"
@@ -50,59 +50,87 @@
                 android:visibility="gone"/>
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvArticleTitle"
-            android:text="@{article.title}"
-            android:layout_margin="8dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivArticle"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvArticleTitle"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvSource"
-                android:text="@{article.source.name}"
-                android:layout_margin="8dp"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvPublished"
-                android:text="@{article.toFormattedDate()}"
                 android:layout_margin="8dp"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="3"
+                android:text="@{article.title}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"/>
+                app:layout_constraintStart_toEndOf="@+id/ivArticle"
+                app:layout_constraintTop_toTopOf="parent"
+                 />
 
-            <View
-                 android:layout_width="match_parent"
-                 android:layout_height="1dp"
-                android:id="@+id/bgLine"
-                android:layout_margin="8dp"
-                android:background="@color/bgLineColor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvSource"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/ivShare"
-                android:src="@drawable/ic_share"
-                app:tint="@color/white"
-                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="21dp"
+                android:text="@{article.source.name}"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bgLine"/>
+                app:layout_constraintStart_toEndOf="@+id/ivArticle"
+                app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"
+                app:layout_constraintVertical_bias="0.3" />
+            <TextView
+                android:id="@+id/tvPublished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="20dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{article.toFormattedDate()}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivSave"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toEndOf="@+id/ivArticle"
+                app:layout_constraintTop_toBottomOf="@+id/tvSource"
+                app:layout_constraintVertical_bias="0.65999997" />
+
+            <View
+                android:id="@+id/bgLine"
+                android:layout_width="220dp"
+                android:layout_height="1dp"
+                android:layout_margin="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/bgLineColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/ivArticle"
+                app:layout_constraintTop_toBottomOf="@+id/tvArticleTitle" />
+            <ImageView
+                android:id="@+id/ivSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_save"
+                android:tag="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivShare"
+                app:layout_constraintTop_toBottomOf="@+id/tvSource"
+                app:layout_constraintVertical_bias="0.49"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/ivShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSource"
+                app:layout_constraintVertical_bias="0.49"
+                app:tint="@color/white" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

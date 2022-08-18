@@ -19,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryTwo"
             app:title="@string/app_name"
             app:titleTextColor="@color/white"
             app:titleCentered="true"
@@ -53,7 +53,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             app:itemIconTint="@color/selector"
             app:itemTextColor="@color/selector"
             app:layout_constraintHorizontal_bias="0.5" />

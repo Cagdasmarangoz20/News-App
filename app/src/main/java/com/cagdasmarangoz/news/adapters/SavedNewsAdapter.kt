@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cagdasmarangoz.news.R
-import com.cagdasmarangoz.news.databinding.ItemArticleBinding
+import com.cagdasmarangoz.news.databinding.ItemArticleDesignBinding
 import com.cagdasmarangoz.news.databinding.ItemSavedBinding
 import com.cagdasmarangoz.news.model.Article
 

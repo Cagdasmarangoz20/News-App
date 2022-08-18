@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cagdasmarangoz.news.R
-import com.cagdasmarangoz.news.databinding.ItemArticleBinding
+import com.cagdasmarangoz.news.databinding.ItemArticleDesignBinding
 import com.cagdasmarangoz.news.model.Article
 
 class ArticleAdapter : ListAdapter<Article,ArticleAdapter.ArticleViewHolder>(
@@ -24,12 +24,12 @@ class ArticleAdapter : ListAdapter<Article,ArticleAdapter.ArticleViewHolder>(
     }
 ){
 
-    class ArticleViewHolder(var view : ItemArticleBinding) : RecyclerView.ViewHolder(view.root)
+    class ArticleViewHolder(var view : ItemArticleDesignBinding) : RecyclerView.ViewHolder(view.root)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
     val inflater = LayoutInflater.from(parent.context)
-      val view = DataBindingUtil.inflate<ItemArticleBinding>(inflater, R.layout.item_article,parent, false)
+      val view = DataBindingUtil.inflate<ItemArticleDesignBinding>(inflater, R.layout.item_article_design,parent, false)
       return ArticleViewHolder(view)
     }
 

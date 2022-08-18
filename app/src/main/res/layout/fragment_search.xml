@@ -38,7 +38,7 @@
                 app:endIconContentDescription="search"
                 app:endIconDrawable="@drawable/ic_search"
                 app:endIconMode="custom"
-                app:hintTextColor="@color/colorPrimary"
+                app:hintTextColor="@color/colorPrimaryTwo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,15 +84,15 @@
             android:orientation="vertical">
 
             <include
-                layout="@layout/item_article"
+                layout="@layout/item_article_design"
                 android:background="@color/background" />
 
             <include
-                layout="@layout/item_article"
+                layout="@layout/item_article_design"
                 android:background="@color/background" />
 
             <include
-                layout="@layout/item_article"
+                layout="@layout/item_article_design"
                 android:background="@color/background" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
