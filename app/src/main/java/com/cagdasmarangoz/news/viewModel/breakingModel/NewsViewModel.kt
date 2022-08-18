@@ -16,6 +16,7 @@ class NewsViewModel (val newsRepository: NewsRepository): ViewModel() {
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var breakingPageNumber = 1
     var breakingNewsResponse: NewsResponse? = null
+    val isLoading = MutableLiveData(false)
 
 
 

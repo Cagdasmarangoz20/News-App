@@ -2,6 +2,14 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModel" />
+        
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:duration="1000"
-            android:visibility="visible">
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE }">
 
             <LinearLayout
                 android:orientation="vertical"

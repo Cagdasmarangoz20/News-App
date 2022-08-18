@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".MainActivity"
-    tools:openDrawer="end">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/white"
-        app:titleCentered="true"
-        tools:ignore="MissingConstraints" />
-
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-<fragment
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/newsFragment"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/news_host"
-    android:name="androidx.navigation.fragment.NavHostFragment"/>
-    </FrameLayout>
-
-     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottomNavigationView"
-        app:labelVisibilityMode="selected"
-        app:menu="@menu/bottom_navbar_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        app:itemIconTint="@color/selector"
-        app:itemTextColor="@color/selector"
-        app:layout_constraintHorizontal_bias="0.5"/>
+        tools:context=".MainActivity"
+        tools:openDrawer="end">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            tools:ignore="MissingConstraints" />
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/newsFragment"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/news_host"
+                android:name="androidx.navigation.fragment.NavHostFragment" />
+        </FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottomNavigationView"
+            app:labelVisibilityMode="selected"
+            app:menu="@menu/bottom_navbar_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@color/selector"
+            app:itemTextColor="@color/selector"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
