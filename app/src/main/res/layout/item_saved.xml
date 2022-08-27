@@ -57,7 +57,7 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="@{article.title}"
-                android:textColor="@color/white"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivArticle"
                 app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="21dp"
                 android:text="@{article.source.name}"
-                android:textColor="@color/white"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivArticle"
@@ -86,7 +86,7 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@{article.toFormattedDate()}"
-                android:textColor="@color/white"
+                android:textColor="@color/primaryTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ivSave"
                 app:layout_constraintHorizontal_bias="0.07"
@@ -118,7 +118,7 @@
                 app:layout_constraintEnd_toStartOf="@id/ivShare"
                 app:layout_constraintTop_toBottomOf="@+id/tvSource"
                 app:layout_constraintVertical_bias="0.49"
-                app:tint="@color/white" />
+                app:tint="@color/primaryTextColor" />
 
             <ImageView
                 android:id="@+id/ivShare"
@@ -130,7 +130,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSource"
                 app:layout_constraintVertical_bias="0.49"
-                app:tint="@color/white" />
+                app:tint="@color/primaryTextColor" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

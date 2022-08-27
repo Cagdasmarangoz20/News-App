@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primaryColor">#2196f3</color>
+    <color name="primaryLightColor">#6ec6ff</color>
+    <color name="primaryDarkColor">#0069c0</color>
+    <color name="secondaryColor">#18ffff</color>
+    <color name="secondaryLightColor">#76ffff</color>
+    <color name="secondaryDarkColor">#00cbcc</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryTwo">#424242</color>
     <color name="colorPrimaryDark">#B8B8B8</color>
@@ -9,5 +18,6 @@
     <color name="bgLineColor">#090909</color>
     <color name="background">#DDFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cardColor">#80817F</color>
+    <color name="cardColor">#ffffff</color>
+    <color name="gray">#959595</color>
 </resources>
