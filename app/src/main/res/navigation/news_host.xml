@@ -7,7 +7,7 @@
 <fragment
     android:id="@+id/breakingNews"
     android:label="fragment_breaking_news"
-    android:name="com.cagdasmarangoz.news.fragment.BreakingNewsFragment"
+    android:name="com.cagdasmarangoz.news.ui.breakinnews.BreakingNewsFragment"
     tools:layout="@layout/fragment_breaking_news">
     <action
         android:id="@+id/action_breakingNewsFragment_to_articleFragment"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/searchNews"
         android:label="fragment_search"
-        android:name="com.cagdasmarangoz.news.fragment.SearchFragment"
+        android:name="com.cagdasmarangoz.news.ui.search.SearchFragment"
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_articleFragment"
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/savedNews"
         android:label="fragment_saved"
-        android:name="com.cagdasmarangoz.news.fragment.SavedFragment"
+        android:name="com.cagdasmarangoz.news.ui.saved.SavedFragment"
         tools:layout="@layout/fragment_saved">
         <action
             android:id="@+id/action_savedFragment_to_articleFragment"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/articleFragment"
         android:label="fragment_article"
-        android:name="com.cagdasmarangoz.news.fragment.ArticleFragment"
+        android:name="com.cagdasmarangoz.news.ui.article.ArticleFragment"
         tools:layout="@layout/fragment_article">
       <argument
           android:name="article"

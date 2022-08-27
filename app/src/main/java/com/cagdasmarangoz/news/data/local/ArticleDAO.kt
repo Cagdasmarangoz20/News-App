@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.repository.db
+package com.cagdasmarangoz.news.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

@@ -7,14 +7,14 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModel" />
+            type="com.cagdasmarangoz.news.ui.breakinnews.NewsViewModel" />
         
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.BreakingNewsFragment">
+        tools:context=".ui.breakinnews.BreakingNewsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBreakingNews"

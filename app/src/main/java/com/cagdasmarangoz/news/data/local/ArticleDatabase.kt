@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.repository.db
+package com.cagdasmarangoz.news.data.local
 
 
 import android.content.Context
@@ -25,7 +25,7 @@ abstract class ArticleDatabase : RoomDatabase() {
 
         operator fun invoke(context: Context) = articleDbInstance ?: synchronized(LOCK){
             articleDbInstance ?: createDatabaseInstance(context).also {
-                articleDbInstance= it
+                articleDbInstance = it
             }
 
 
@@ -33,7 +33,7 @@ abstract class ArticleDatabase : RoomDatabase() {
         }
         private fun createDatabaseInstance(context: Context) =
             Room.databaseBuilder(
-                context,ArticleDatabase::class.java,
+                context, ArticleDatabase::class.java,
                 "articles_db.db"
             ).fallbackToDestructiveMigration().build()
 

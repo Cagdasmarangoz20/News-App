@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.fragment
+package com.cagdasmarangoz.news.ui.search
 
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -14,15 +14,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cagdasmarangoz.news.R
-import com.cagdasmarangoz.news.adapters.ArticleAdapter
+import com.cagdasmarangoz.news.ui.common.adapter.ArticleAdapter
 import com.cagdasmarangoz.news.databinding.FragmentSearchBinding
-import com.cagdasmarangoz.news.repository.NewsRepository
-import com.cagdasmarangoz.news.repository.db.ArticleDatabase
+import com.cagdasmarangoz.news.data.repository.NewsRepository
+import com.cagdasmarangoz.news.data.local.ArticleDatabase
 import com.cagdasmarangoz.news.utils.Resource
 import com.cagdasmarangoz.news.utils.shareNews
 import com.cagdasmarangoz.news.utils.textChangeDelayedListener
-import com.cagdasmarangoz.news.viewModel.searchModel.SearchViewModel
-import com.cagdasmarangoz.news.viewModel.searchModel.SearchViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 

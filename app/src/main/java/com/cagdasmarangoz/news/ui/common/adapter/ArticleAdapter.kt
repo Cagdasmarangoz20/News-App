@@ -1,10 +1,9 @@
-package com.cagdasmarangoz.news.adapters
+package com.cagdasmarangoz.news.ui.common.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import com.cagdasmarangoz.news.R
 import com.cagdasmarangoz.news.databinding.ItemArticleDesignBinding
 import com.cagdasmarangoz.news.model.Article
 
-class ArticleAdapter : ListAdapter<Article,ArticleAdapter.ArticleViewHolder>(
+class ArticleAdapter : ListAdapter<Article, ArticleAdapter.ArticleViewHolder>(
     object  : DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return  oldItem.id == oldItem.id
@@ -98,6 +97,12 @@ class ArticleAdapter : ListAdapter<Article,ArticleAdapter.ArticleViewHolder>(
     }
     fun onShareClickListener(listener : ((Article)->Unit)){
         onShareNewsClick=listener
+    }
+
+    fun addList(list: List<Article>){
+        val oldList = currentList.toMutableList()
+        oldList.addAll(list)
+        submitList(oldList)
     }
 
 

@@ -9,6 +9,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -75,6 +79,40 @@ fun EditText.textChangeDelayedListener(delayTime: Long = 700L, textChange: (Stri
                     textChange.invoke(query ?: "")
                 }
             }, delayTime)
+        }
+    })
+}
+
+fun RecyclerView.onScrollEndListener(onScrollEnd :() -> Unit){
+    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            val mLayoutManager = recyclerView.layoutManager ?: return
+            val visibleItemCount = mLayoutManager.childCount
+            val totalItemCount = mLayoutManager.itemCount
+            var firstVisibleItemPosition = 0
+
+            when (mLayoutManager) {
+                is StaggeredGridLayoutManager -> {
+                    val firstVisibleItemPositions =
+                        mLayoutManager.findFirstVisibleItemPositions(null)
+                    // get maximum element within the list
+                    firstVisibleItemPosition = firstVisibleItemPositions[0]
+                }
+                is GridLayoutManager -> {
+                    firstVisibleItemPosition =
+                        mLayoutManager.findFirstVisibleItemPosition()
+                }
+                is LinearLayoutManager -> {
+                    firstVisibleItemPosition =
+                        mLayoutManager.findFirstVisibleItemPosition()
+                }
+            }
+            if (visibleItemCount + firstVisibleItemPosition >= totalItemCount
+                && firstVisibleItemPosition >= 0
+            ) {
+                onScrollEnd.invoke()
+            }
         }
     })
 }

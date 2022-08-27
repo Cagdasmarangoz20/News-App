@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.fragment
+package com.cagdasmarangoz.news.ui.saved
 
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -16,13 +16,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cagdasmarangoz.news.R
-import com.cagdasmarangoz.news.adapters.SavedNewsAdapter
 import com.cagdasmarangoz.news.databinding.FragmentSavedBinding
-import com.cagdasmarangoz.news.repository.NewsRepository
-import com.cagdasmarangoz.news.repository.db.ArticleDatabase
+import com.cagdasmarangoz.news.data.repository.NewsRepository
+import com.cagdasmarangoz.news.data.local.ArticleDatabase
 import com.cagdasmarangoz.news.utils.shareNews
-import com.cagdasmarangoz.news.viewModel.savedModel.SaveViewModelFactory
-import com.cagdasmarangoz.news.viewModel.savedModel.SavedViewModel
 import com.google.android.material.snackbar.Snackbar
 
 

@@ -1,8 +1,8 @@
-package com.cagdasmarangoz.news.repository
+package com.cagdasmarangoz.news.data.repository
 
 import com.cagdasmarangoz.news.model.Article
-import com.cagdasmarangoz.news.repository.db.ArticleDatabase
-import com.cagdasmarangoz.news.repository.service.RetrofitClient
+import com.cagdasmarangoz.news.data.local.ArticleDatabase
+import com.cagdasmarangoz.news.data.remote.RetrofitClient
 
 class NewsRepository(val db: ArticleDatabase) {
     suspend fun getBreakingNews(countryCode : String,pageNumber:Int)=

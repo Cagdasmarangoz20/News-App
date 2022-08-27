@@ -1,8 +1,8 @@
-package com.cagdasmarangoz.news.viewModel.searchModel
+package com.cagdasmarangoz.news.ui.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.cagdasmarangoz.news.repository.NewsRepository
+import com.cagdasmarangoz.news.data.repository.NewsRepository
 
 class SearchViewModelFactory (private val newsRepository: NewsRepository) : ViewModelProvider.Factory{
 

@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.fragment
+package com.cagdasmarangoz.news.ui.breakinnews
 
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -8,20 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cagdasmarangoz.news.R
-import com.cagdasmarangoz.news.adapters.ArticleAdapter
+import com.cagdasmarangoz.news.ui.common.adapter.ArticleAdapter
 import com.cagdasmarangoz.news.databinding.FragmentBreakingNewsBinding
-import com.cagdasmarangoz.news.repository.NewsRepository
-import com.cagdasmarangoz.news.repository.db.ArticleDatabase
+import com.cagdasmarangoz.news.data.repository.NewsRepository
+import com.cagdasmarangoz.news.data.local.ArticleDatabase
 import com.cagdasmarangoz.news.utils.Resource
+import com.cagdasmarangoz.news.utils.onScrollEndListener
 import com.cagdasmarangoz.news.utils.shareNews
-import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModel
-import com.cagdasmarangoz.news.viewModel.breakingModel.NewsViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
 
@@ -97,12 +95,18 @@ class BreakingNewsFragment : Fragment() {
             viewModel = ViewModelProvider(this,viewModelProvider)[NewsViewModel::class.java]
             binding.viewModel = viewModel
         }
-      setupRecyclerView()
+        setupRecyclerView()
         setViewModelObserver()
+        val mLayoutManager = LinearLayoutManager(activity)
+        binding.rvBreakingNews.layoutManager = mLayoutManager
+
+        binding.rvBreakingNews.onScrollEndListener {
+            if (viewModel.isLoading.value == false && viewModel.isPagingEnd.not()) viewModel.getNextPageData()
+        }
     }
 
     private fun setViewModelObserver() {
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { newsResponse ->
+        viewModel.breakingNews.observe(viewLifecycleOwner) { newsResponse ->
             when (newsResponse) {
                 is Resource.Success -> {
                     viewModel.isLoading.value = false
@@ -110,7 +114,7 @@ class BreakingNewsFragment : Fragment() {
                     //binding. shimmerFrameLayout.visibility = View.GONE
                     newsResponse.data?.let { news ->
                         binding.rvBreakingNews.visibility = View.VISIBLE
-                        newsAdapter.submitList(news.articles)
+                        newsAdapter.addList(news.articles)
                     }
                 }
                 is Resource.Error -> {
@@ -125,7 +129,7 @@ class BreakingNewsFragment : Fragment() {
                     binding.shimmerFrameLayout.startShimmerAnimation()
                 }
             }
-        })
+        }
     }
 }
 

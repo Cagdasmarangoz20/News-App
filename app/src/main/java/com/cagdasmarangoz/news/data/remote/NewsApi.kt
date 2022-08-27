@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.repository.service
+package com.cagdasmarangoz.news.data.remote
 
 import com.cagdasmarangoz.news.model.NewsResponse
 import com.cagdasmarangoz.news.utils.Constants

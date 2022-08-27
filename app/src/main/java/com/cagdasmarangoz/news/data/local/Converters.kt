@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.news.repository.db
+package com.cagdasmarangoz.news.data.local
 
 import androidx.room.TypeConverter
 import com.cagdasmarangoz.news.model.Source
